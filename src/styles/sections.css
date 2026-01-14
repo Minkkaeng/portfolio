@@ -212,7 +212,7 @@
 }
 
 .skill-card {
-   border-radius: 18px;
+   border-radius: 15px;
    border: 1px solid var(--border-subtle);
    background: var(--surface);
    box-shadow: var(--shadow-soft);
@@ -256,14 +256,6 @@
    margin: 0;
    font-size: 14px;
    color: var(--text);
-}
-
-/* 예전 도트, 안 쓰면 삭제 가능 */
-.skill-dot {
-   width: 8px;
-   height: 8px;
-   border-radius: 999px;
-   background: var(--accent);
 }
 
 .skills-subtitle {
