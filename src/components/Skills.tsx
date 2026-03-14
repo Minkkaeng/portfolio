@@ -56,10 +56,16 @@ const skillsSupport: Skill[] = [
     detail: "간단한 사진 보정, 합성, 썸네일/배너 제작이 가능합니다. 웹용 해상도/용량 최적화를 고려합니다.",
   },
   {
-    name: "Illustrator",
-    icon: "/img/ai.png",
-    desc: "로고, 아이콘, 심볼 작업",
-    detail: "벡터 기반 로고/아이콘 제작이 가능하고, SVG로 내보내 웹에서 재사용하는 흐름을 이해합니다.",
+    name: "AI - Canvas",
+    icon: "/img/canva.svg",
+    desc: "프로토타이핑, 비주얼 에셋 제작",
+    detail: "Canva 등 AI 도구를 활용한 신속한 UI 프로토타이핑 및 비주얼 에셋 제작이 가능합니다.",
+  },
+  {
+    name: "Antigravity",
+    icon: "/img/antigravity.svg",
+    desc: "코드 품질, 생산성 최적화",
+    detail: "AI 워크플로우를 통한 개발 생산성 및 코드 품질 최적화를 수행합니다.",
   },
 ];
 
