@@ -22,7 +22,7 @@ type Project = {
 const projects: Project[] = [
   {
     id: 6,
-    label: "01 · L'Essence Naturelle",
+    label: "NEW · L'Essence Naturelle",
     role: "개인 프로젝트 · Frontend",
     period: "2026.04",
     title: "프리미엄 내츄럴 스킨케어",
@@ -41,7 +41,7 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    label: "02 · WeWeb",
+    label: "NEW · WeWeb",
     role: "개인 프로젝트 · Frontend",
     period: "2026.04",
     title: "WeWeb 랜딩 웹페이지",
@@ -60,7 +60,7 @@ const projects: Project[] = [
   },
   {
     id: 0,
-    label: "03 · UsPetMile",
+    label: "NEW · UsPetMile",
     role: "개인 프로젝트 · Fullstack",
     period: "2026.02",
     title: "반려동물 동반 여행 플랫폼",
@@ -80,7 +80,7 @@ const projects: Project[] = [
   },
   {
     id: 1,
-    label: "04 · Play Farm",
+    label: "01 · Play Farm",
     role: "팀 프로젝트 · Frontend 중심",
     period: "2025.12 ~ 2026.01",
     title: "농장 체험 예약 플랫폼",
@@ -100,7 +100,7 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    label: "05 · Planify",
+    label: "02 · Planify",
     role: "개인 프로젝트",
     period: "2025.12",
     title: "Productivity 플래너",
@@ -120,7 +120,7 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    label: "06 · Airbnb Renewal",
+    label: "03 · Airbnb Renewal",
     role: "개인 프로젝트",
     period: "2025.10",
     title: "숙소 검색 UX 리디자인",
@@ -135,7 +135,7 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    label: "07 · The GamSung",
+    label: "04 · The GamSung",
     role: "개인 프로젝트",
     period: "2025.08",
     title: "감성 인테리어 쇼핑몰",
@@ -200,7 +200,7 @@ function Projects() {
 
             {/* Card Text Part */}
             <div className="px-1">
-              <p className="text-[10px] font-bold tracking-wider mb-1.5 text-text-sub">
+              <p className={`text-[10px] font-bold tracking-wider mb-1.5 ${project.label.startsWith('NEW') ? 'text-accent' : 'text-text-sub'}`}>
                 {project.label}
               </p>
               <h3 className="text-lg font-bold mb-2 text-text group-hover:text-accent transition-colors leading-tight line-clamp-1">
