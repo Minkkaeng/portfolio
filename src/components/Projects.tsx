@@ -176,8 +176,8 @@ function Projects() {
             className="group cursor-pointer"
           >
             {/* Card Image Part */}
-            <div className="aspect-[4/3] rounded-2xl bg-slate-100 border border-slate-100 overflow-hidden relative mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 bg-white transition-transform duration-700 group-hover:scale-105">
+            <div className="aspect-[4/3] rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 overflow-hidden relative mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 transition-transform duration-700 group-hover:scale-105">
                 <div 
                   className="w-20 h-20 rounded-full flex items-center justify-center shadow-sm border border-black/5"
                   style={{ backgroundColor: `${project.color}10` }}
@@ -207,13 +207,13 @@ function Projects() {
 
             {/* Card Text Part */}
             <div className="px-1">
-              <p className={`text-[10px] font-bold tracking-wider mb-1.5 ${project.label.startsWith('NEW') ? 'text-accent' : 'text-slate-400'}`}>
+              <p className={`text-[10px] font-bold tracking-wider mb-1.5 ${project.label.startsWith('NEW') ? 'text-accent' : 'text-slate-400 dark:text-slate-500'}`}>
                 {project.label}
               </p>
-              <h3 className="text-lg font-bold mb-2 text-slate-900 group-hover:text-accent transition-colors leading-tight line-clamp-1">
+              <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white group-hover:text-accent dark:group-hover:text-accent transition-colors leading-tight line-clamp-1">
                 {project.title}
               </h3>
-              <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
                 {project.summary}
               </p>
             </div>
