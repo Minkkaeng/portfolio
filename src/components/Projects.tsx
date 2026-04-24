@@ -198,20 +198,6 @@ function Projects() {
                 </h3>
               </div>
               <p className="text-slate-500 text-[11px] leading-snug line-clamp-2 opacity-90">{project.summary}</p>
-
-              <div className="mt-3 flex flex-wrap gap-1">
-                {project.tech.slice(0, 2).map((t) => (
-                  <span
-                    key={t}
-                    className="px-1.5 py-0.5 rounded bg-slate-100 text-[8px] font-bold text-slate-600 border border-slate-200"
-                  >
-                    {t}
-                  </span>
-                ))}
-                {project.tech.length > 2 && (
-                  <span className="text-[8px] text-slate-400 font-bold px-1">+ {project.tech.length - 2}</span>
-                )}
-              </div>
             </div>
           </motion.div>
         ))}
