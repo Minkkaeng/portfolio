@@ -21,6 +21,44 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: 6,
+    label: "NEW · L'Essence Naturelle",
+    role: "개인 프로젝트 · Frontend",
+    period: "2026.04",
+    title: "프리미엄 내츄럴 스킨케어",
+    summary:
+      "자연주의 프리미엄 스킨케어 브랜드를 위한 웹페이지를 구현했습니다. 브랜드 이미지에 맞는 세련된 UI와 반응형 디자인에 중점을 두었습니다.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    highlights: [
+      "프리미엄 브랜드 이미지에 맞는 UI/UX 구현",
+      "반응형 웹 디자인을 통한 데스크탑/모바일 호환성 확보",
+    ],
+    tags: ["React", "Landing", "Skincare"],
+    live: "https://minkkaeng.github.io/L-Essence-Naturelle/",
+    repo: "https://github.com/Minkkaeng/L-Essence-Naturelle",
+    logo: "/img/projects/LEssenceNaturelle.png",
+    color: "#4a5d23",
+  },
+  {
+    id: 5,
+    label: "NEW · WeWeb",
+    role: "개인 프로젝트 · Frontend",
+    period: "2026.04",
+    title: "WeWeb 랜딩 웹페이지",
+    summary:
+      "React 기반 WeWeb 애플리케이션의 브랜드스토리 및 랜딩 페이지를 구현했습니다. 반응형 구조와 직관적인 UI 요소들에 중점을 두었습니다.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    highlights: [
+      "커스텀 디자인 기반 랜딩 페이지 컴포넌트화",
+      "반응형 웹 디자인을 통한 데스크탑/모바일 호환성 확보",
+    ],
+    tags: ["React", "Landing", "Responsive"],
+    live: "https://minkkaeng.github.io/WeWeb/",
+    repo: "https://github.com/Minkkaeng/WeWeb",
+    logo: "/img/projects/portfolio.PNG",
+    color: "#f43f5e",
+  },
+  {
     id: 0,
     label: "NEW · UsPetMile",
     role: "개인 프로젝트 · Fullstack",
