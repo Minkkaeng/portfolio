@@ -173,24 +173,27 @@ function Projects() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
             onClick={() => setActiveProject(project)}
-            className="group cursor-pointer rounded-[20px] bg-white border border-black/10 overflow-hidden hover:border-accent transition-all shadow-soft hover:shadow-strong flex flex-col"
+            className="group cursor-pointer flex flex-col gap-3"
           >
-            <div
-              className="aspect-[16/10] relative overflow-hidden backdrop-blur-sm bg-slate-50"
-            >
+            {/* Image (Logo) part */}
+            <div className="aspect-[16/10] relative overflow-hidden rounded-[20px] bg-slate-50 border border-black/5 transition-all group-hover:border-accent/30">
               <img
-                src={getImagePath(project.logo)}
+                src={project.logo ? getImagePath(project.logo) : "https://placehold.co/400x250?text=No+Image"}
                 alt={project.title}
+                onError={(e) => {
+                  e.currentTarget.src = "https://placehold.co/400x250?text=Image+Not+Found";
+                }}
                 className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                 <span className="px-3 py-1 rounded-full bg-accent text-white font-bold text-[9px] shadow-lg">
                   세부사항
                 </span>
               </div>
             </div>
 
-            <div className="p-4 flex-1 flex flex-col">
+            {/* Description card part */}
+            <div className="p-4 flex-1 flex flex-col bg-white rounded-[20px] border border-black/10 shadow-soft group-hover:shadow-strong group-hover:border-accent transition-all">
               <div className="flex flex-col gap-0 mb-1.5">
                 <span className="text-[8px] font-bold text-accent tracking-wider uppercase">{project.label}</span>
                 <h3 className="text-base font-bold text-slate-900 line-clamp-1 group-hover:text-accent transition-colors leading-tight">
