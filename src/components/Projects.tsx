@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Github, Layers } from "lucide-react";
+import { X, ExternalLink, Github, Layers, ArrowUpRight, Heart } from "lucide-react";
 import { getImagePath } from "../utils/imagePath";
 
 type Project = {
@@ -164,7 +164,7 @@ function Projects() {
         <h2 className="text-2xl md:text-3xl font-bold text-text">Selected Work</h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
@@ -173,10 +173,10 @@ function Projects() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
             onClick={() => setActiveProject(project)}
-            className="group cursor-pointer flex flex-col gap-3"
+            className="group cursor-pointer"
           >
-            {/* Image (Logo) part */}
-            <div className="aspect-[16/10] relative overflow-hidden transition-all">
+            {/* Card Image Part */}
+            <div className="aspect-[4/3] rounded-2xl bg-slate-100 border border-slate-100 overflow-hidden relative mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
               <img
                 src={project.logo ? getImagePath(project.logo) : "https://placehold.co/400x250?text=No+Image"}
                 alt={project.title}
@@ -185,22 +185,32 @@ function Projects() {
                 }}
                 className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <span className="px-3 py-1 rounded-full bg-accent text-white font-bold text-[9px] shadow-lg">
-                  세부사항
-                </span>
+              {/* Hover Overlay Button */}
+              <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                 <div className="bg-accent text-white px-4 py-2 rounded-full text-xs font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center gap-1 shadow-lg">
+                    상세보기 <ArrowUpRight size={14} />
+                 </div>
               </div>
+
+              {/* Heart Icon for UsPetMile (id: 0) */}
+              {project.id === 0 && (
+                 <div className="absolute bottom-3 right-3 text-red-500">
+                   <Heart size={16} fill="#FF4D4D" stroke="#FF4D4D" />
+                 </div>
+              )}
             </div>
 
-            {/* Description card part */}
-            <div className="p-4 flex-1 flex flex-col bg-white rounded-[20px] border border-black/10 shadow-soft group-hover:shadow-strong group-hover:border-accent transition-all">
-              <div className="flex flex-col gap-0 mb-1.5">
-                <span className="text-[8px] font-bold text-accent tracking-wider uppercase">{project.label}</span>
-                <h3 className="text-base font-bold text-slate-900 line-clamp-1 group-hover:text-accent transition-colors leading-tight">
-                  {project.title}
-                </h3>
-              </div>
-              <p className="text-slate-500 text-[11px] leading-snug line-clamp-2 opacity-90">{project.summary}</p>
+            {/* Card Text Part */}
+            <div className="px-1">
+              <p className={`text-[10px] font-bold tracking-wider mb-1.5 ${project.label.startsWith('NEW') ? 'text-accent' : 'text-slate-400'}`}>
+                {project.label}
+              </p>
+              <h3 className="text-lg font-bold mb-2 text-slate-900 group-hover:text-accent transition-colors leading-tight line-clamp-1">
+                {project.title}
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
+                {project.summary}
+              </p>
             </div>
           </motion.div>
         ))}
