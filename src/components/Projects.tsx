@@ -176,8 +176,7 @@ function Projects() {
             className="group cursor-pointer rounded-[20px] bg-white border border-black/10 overflow-hidden hover:border-accent transition-all shadow-soft hover:shadow-strong flex flex-col"
           >
             <div
-              className="aspect-[16/10] relative overflow-hidden backdrop-blur-sm"
-              style={{ backgroundColor: `${project.color}1a` }} // 1a is 10% opacity in hex
+              className="aspect-[16/10] relative overflow-hidden backdrop-blur-sm bg-slate-50"
             >
               <img
                 src={getImagePath(project.logo)}
