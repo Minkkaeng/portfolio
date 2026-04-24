@@ -176,7 +176,7 @@ function Projects() {
             className="group cursor-pointer flex flex-col gap-3"
           >
             {/* Image (Logo) part */}
-            <div className="aspect-[16/10] relative overflow-hidden rounded-[20px] bg-slate-50 border border-black/5 transition-all group-hover:border-accent/30">
+            <div className="aspect-[16/10] relative overflow-hidden transition-all">
               <img
                 src={project.logo ? getImagePath(project.logo) : "https://placehold.co/400x250?text=No+Image"}
                 alt={project.title}
