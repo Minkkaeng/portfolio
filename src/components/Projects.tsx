@@ -177,14 +177,19 @@ function Projects() {
           >
             {/* Card Image Part */}
             <div className="aspect-[4/3] rounded-2xl bg-slate-100 border border-slate-100 overflow-hidden relative mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-              <img
-                src={project.logo ? getImagePath(project.logo) : "https://placehold.co/400x250?text=No+Image"}
-                alt={project.title}
-                onError={(e) => {
-                  e.currentTarget.src = "https://placehold.co/400x250?text=Image+Not+Found";
-                }}
-                className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
-              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 bg-white transition-transform duration-700 group-hover:scale-105">
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center shadow-sm border border-black/5"
+                  style={{ backgroundColor: `${project.color}10` }}
+                >
+                  <span className="font-black italic text-2xl tracking-tighter" style={{ color: project.color }}>
+                    {project.label.split('·')[1]?.trim().substring(0, 2) || project.title.substring(0, 2)}
+                  </span>
+                </div>
+                <span className="text-[10px] font-bold tracking-[0.2em] text-slate-400 text-center uppercase">
+                  {project.label.split('·')[1]?.trim() || project.title}
+                </span>
+              </div>
               {/* Hover Overlay Button */}
               <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                  <div className="bg-accent text-white px-4 py-2 rounded-full text-xs font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center gap-1 shadow-lg">
