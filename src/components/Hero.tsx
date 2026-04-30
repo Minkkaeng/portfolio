@@ -7,7 +7,7 @@ function Hero() {
       <div className="flex-1 text-left">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <span className="inline-block px-3 py-1 rounded-full bg-accent-soft text-accent text-[10px] font-bold tracking-widest uppercase mb-6 border border-accent/20">
-            Frontend Developer · UI/UX Explorer
+            Frontend Developer & UI/UX Designer
           </span>
         </motion.div>
 
@@ -17,12 +17,12 @@ function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-[1.15]"
         >
-          서비스 흐름을 <br />
+          사용자 중심의 <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-[#ff8ed2]">
-            구조적으로
+            경험을 설계하고
           </span>{" "}
           <br />
-          구현합니다
+          구조적으로 구현합니다
         </motion.h1>
 
         <motion.p
@@ -31,8 +31,8 @@ function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-base md:text-lg text-text-sub max-w-xl mb-8 leading-relaxed opacity-90"
         >
-          React 기반 SPA에서 컴포넌트 설계와 상태 흐름을 최적화하고, <br className="hidden md:block" />
-          지속 가능한 코드를 작성하는 데 열정을 가지고 있습니다.
+          심미적인 디자인과 논리적인 설계를 결합하여, <br className="hidden md:block" />
+          사용자가 머무르고 싶은 웹 인터페이스를 만듭니다.
         </motion.p>
 
         <motion.div
@@ -61,7 +61,7 @@ function Hero() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-10 flex flex-wrap gap-2.5"
         >
-          {["React", "TypeScript", "Tailwind", "Vite", "State Management"].map((tag) => (
+          {["React", "TypeScript", "UI/UX Design", "Figma", "Tailwind"].map((tag) => (
             <span
               key={tag}
               className="px-2.5 py-1 rounded-md bg-bg-soft/70 text-text-sub text-[10px] font-bold border border-border-subtle/50 uppercase tracking-wide"

@@ -1,22 +1,27 @@
 import { motion } from "framer-motion";
-import { User, Code2, Rocket } from "lucide-react";
+import { User, Code2, Rocket, Palette } from "lucide-react";
 
 function About() {
   const cards = [
     {
       icon: <Code2 className="text-accent" size={24} />,
       title: "구조적인 개발",
-      desc: "단순히 예쁜 화면보다 유지보수 가능한 컴포넌트 구조와 데이터 흐름을 중요하게 생각합니다.",
+      desc: "유지보수가 용이한 컴포넌트 설계와 명확한 데이터 흐름을 기반으로 견고한 애플리케이션을 구축합니다.",
     },
     {
-      icon: <User className="text-[#ff8ed2]" size={24} />,
+      icon: <Palette className="text-[#ff8ed2]" size={24} />,
+      title: "UI/UX 디자인",
+      desc: "심미성과 기능성의 균형을 맞춘 인터페이스를 설계하며, 사용자 경험을 최우선으로 고려합니다.",
+    },
+    {
+      icon: <User className="text-accent" size={24} />,
       title: "사용자 중심",
-      desc: "디자인과 개발 사이의 간격을 좁히고, 사용자가 편안하게 느낄 수 있는 인터랙션을 고민합니다.",
+      desc: "사용자의 여정을 분석하고, 더 나은 해결책을 제시하기 위해 끊임없이 인터랙션을 고민합니다.",
     },
     {
-      icon: <Rocket className="text-accent" size={24} />,
+      icon: <Rocket className="text-[#ff8ed2]" size={24} />,
       title: "성장과 책임",
-      desc: "팀 프로젝트에서 관리자/사용자 UI를 설계하며 책임감을 배우고, 배포 이슈를 해결하며 성장했습니다.",
+      desc: "팀 프로젝트의 UI/UX 설계부터 구현까지 주도적으로 참여하며 결과물에 대한 깊은 책임감을 가집니다.",
     },
   ];
 
@@ -35,20 +40,21 @@ function About() {
 
         <div className="space-y-8">
           <h3 className="text-2xl md:text-4xl font-bold leading-tight">
-            조용히, 하지만 <br />
-            <span className="text-accent underline decoration-accent/20 underline-offset-8">결과는 명확하게.</span>
+            생각의 깊이를 <br />
+            <span className="text-accent underline decoration-accent/20 underline-offset-8">디자인과 코드로 증명합니다.</span>
           </h3>
           <p className="text-lg md:text-xl text-text-sub leading-relaxed max-w-xl">
-            React 기반 UI를 컴포넌트 구조로 나누고, <br />
-            상태와 라우팅 흐름을 정리하여 구현하는 것에 강점이 있습니다.
+            단순히 기능을 구현하는 것을 넘어, 사용자가 제품과 상호작용하는 모든 순간을 디자인합니다. <br />
+            Figma를 활용한 프로토타이핑부터 React 기반의 정교한 구현까지, <br />
+            디자인과 개발의 경계를 허무는 것을 목표로 합니다.
           </p>
           <p className="text-text-sub leading-relaxed max-w-xl">
-            마크업, 레이아웃, 상태 흐름이 명확하게 정의되어야 안정감을 느끼며, 타이포그래피와 인터랙션의 세밀한 지점까지
-            정의하여 프로젝트의 완성도를 높이는 것을 즐깁니다.
+            안정적인 상태 관리와 컴포넌트 설계는 기본이며, 여기에 타이포그래피, 컬러 시스템, 마이크로 인터랙션을 더해
+            프로젝트의 완성도를 한 단계 끌어올리는 작업을 즐깁니다.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-4">
-            {["Component Thinking", "Ownership", "Pixel Perfection"].map((badge) => (
+            {["Design Systems", "User Experience", "Pixel Perfection", "Figma to Code"].map((badge) => (
               <span
                 key={badge}
                 className="px-5 py-2 rounded-xl bg-surface border border-border-subtle text-sm font-bold text-text-sub shadow-soft"
