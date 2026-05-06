@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Github, Layers, ArrowUpRight, Heart } from "lucide-react";
 import { getImagePath } from "../utils/imagePath";
@@ -154,6 +154,54 @@ const projects: Project[] = [
   },
 ];
 
+const ProjectCard = memo(({ project, index, onClick }: { project: Project; index: number; onClick: (p: Project) => void }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.05 }}
+    onClick={() => onClick(project)}
+    className="group cursor-pointer"
+    style={{ willChange: "transform, opacity" }}
+  >
+    {/* Card Image Part */}
+    <div className="aspect-[4/3] rounded-2xl bg-surface border border-border-subtle overflow-hidden relative mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 transition-transform duration-700 group-hover:scale-105">
+        <div 
+          className="w-20 h-20 rounded-full flex items-center justify-center shadow-sm border border-border-subtle"
+          style={{ backgroundColor: `${project.color}10` }}
+        >
+          <span className="font-black italic text-2xl tracking-tighter" style={{ color: project.color }}>
+            {project.label.split('·')[1]?.trim().substring(0, 2) || project.title.substring(0, 2)}
+          </span>
+        </div>
+        <span className="text-[10px] font-bold tracking-[0.2em] text-text-sub text-center uppercase">
+          {project.label.split('·')[1]?.trim() || project.title}
+        </span>
+      </div>
+      {/* Hover Overlay Button */}
+      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+         <div className="bg-accent text-white px-4 py-2 rounded-full text-xs font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center gap-1 shadow-lg">
+            상세보기 <ArrowUpRight size={14} />
+         </div>
+      </div>
+    </div>
+
+    {/* Card Text Part */}
+    <div className="px-1">
+      <p className={`text-[10px] font-bold tracking-wider mb-1.5 ${project.label.startsWith('NEW') ? 'text-accent' : 'text-text-sub'}`}>
+        {project.label}
+      </p>
+      <h3 className="text-lg font-bold mb-2 text-text group-hover:text-accent transition-colors leading-tight line-clamp-1">
+        {project.title}
+      </h3>
+      <p className="text-xs text-text-sub leading-relaxed line-clamp-2">
+        {project.summary}
+      </p>
+    </div>
+  </motion.div>
+));
+
 function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
@@ -166,51 +214,12 @@ function Projects() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.05 }}
-            onClick={() => setActiveProject(project)}
-            className="group cursor-pointer"
-          >
-            {/* Card Image Part */}
-            <div className="aspect-[4/3] rounded-2xl bg-surface border border-border-subtle overflow-hidden relative mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 transition-transform duration-700 group-hover:scale-105">
-                <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center shadow-sm border border-border-subtle"
-                  style={{ backgroundColor: `${project.color}10` }}
-                >
-                  <span className="font-black italic text-2xl tracking-tighter" style={{ color: project.color }}>
-                    {project.label.split('·')[1]?.trim().substring(0, 2) || project.title.substring(0, 2)}
-                  </span>
-                </div>
-                <span className="text-[10px] font-bold tracking-[0.2em] text-text-sub text-center uppercase">
-                  {project.label.split('·')[1]?.trim() || project.title}
-                </span>
-              </div>
-              {/* Hover Overlay Button */}
-              <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <div className="bg-accent text-white px-4 py-2 rounded-full text-xs font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center gap-1 shadow-lg">
-                    상세보기 <ArrowUpRight size={14} />
-                 </div>
-              </div>
-            </div>
-
-            {/* Card Text Part */}
-            <div className="px-1">
-              <p className={`text-[10px] font-bold tracking-wider mb-1.5 ${project.label.startsWith('NEW') ? 'text-accent' : 'text-text-sub'}`}>
-                {project.label}
-              </p>
-              <h3 className="text-lg font-bold mb-2 text-text group-hover:text-accent transition-colors leading-tight line-clamp-1">
-                {project.title}
-              </h3>
-              <p className="text-xs text-text-sub leading-relaxed line-clamp-2">
-                {project.summary}
-              </p>
-            </div>
-          </motion.div>
+          <ProjectCard 
+            key={project.id} 
+            project={project} 
+            index={index} 
+            onClick={setActiveProject} 
+          />
         ))}
       </div>
 
@@ -222,13 +231,14 @@ function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveProject(null)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              className="absolute inset-0 bg-black/40"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 40 }}
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 40 }}
-              className="relative w-full max-w-2xl max-h-full bg-white rounded-[40px] border border-black/10 shadow-strong overflow-hidden"
+              exit={{ opacity: 0, scale: 0.98, y: 20 }}
+              className="relative w-full max-w-2xl max-h-full bg-white rounded-[32px] border border-black/5 shadow-2xl overflow-hidden"
+              style={{ willChange: "transform, opacity" }}
             >
               <button
                 onClick={() => setActiveProject(null)}

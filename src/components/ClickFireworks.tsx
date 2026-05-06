@@ -15,7 +15,7 @@ function ClickFireworks() {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const newParticles: Particle[] = [];
-      const count = 8; // Number of hearts per click
+      const count = 6; // Number of hearts per click
       const now = Date.now();
 
       for (let i = 0; i < count; i++) {
@@ -57,17 +57,18 @@ function ClickFireworks() {
               rotate: 0,
             }}
             animate={{
-              x: p.x + Math.cos(p.angle) * p.velocity * 20,
-              y: p.y + Math.sin(p.angle) * p.velocity * 20,
+              x: p.x + Math.cos(p.angle) * p.velocity * 15,
+              y: p.y + Math.sin(p.angle) * p.velocity * 15,
               opacity: 0,
-              scale: 1.5,
+              scale: 1.2,
               rotate: Math.random() * 360,
             }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="absolute"
+            style={{ willChange: "transform, opacity" }}
           >
-            <div className="w-2 h-2 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+            <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
           </motion.div>
         ))}
       </AnimatePresence>

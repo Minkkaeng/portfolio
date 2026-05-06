@@ -44,6 +44,7 @@ function CursorFollower() {
         y: cursorY,
         translateX: "-50%",
         translateY: "-50%",
+        willChange: "transform",
       }}
     >
       <motion.div
