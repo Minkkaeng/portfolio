@@ -24,7 +24,7 @@
   @apply text-accent underline decoration-accent/20 underline-offset-8;
 }
 @utility about-lead-paragraph {
-  @apply text-lg md:text-xl text-text-sub leading-relaxed max-w-xl;
+  @apply text-base md:text-lg text-text-sub leading-relaxed max-w-xl;
 }
 @utility about-paragraph {
   @apply text-text-sub leading-relaxed max-w-xl;
