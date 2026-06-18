@@ -146,3 +146,46 @@ section {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Print Styles */
+@media print {
+  html, body, #root {
+    overflow: visible !important;
+    height: auto !important;
+    scroll-snap-type: none !important;
+    background: #ffffff !important;
+    color: #111322 !important;
+  }
+  
+  /* Hide interactive / visual decorators */
+  header,
+  .contact-decor-accent,
+  .contact-decor-pink,
+  .skills-modal-decor,
+  .hero-background-blur,
+  [class*="CursorFollower"],
+  [class*="ClickFireworks"],
+  .scrollDownIndicator,
+  .hero-scroll-down-indicator,
+  button:not(.projects-link-btn-primary):not(.projects-link-btn-secondary),
+  a:not([href]) {
+    display: none !important;
+  }
+
+  /* Section page break settings */
+  section {
+    page-break-inside: avoid !important;
+    page-break-after: always !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 40px 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Adjust typography for print */
+  h1, h2, h3, h4, p, span {
+    color: #111322 !important;
+    text-shadow: none !important;
+  }
+}
+
