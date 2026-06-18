@@ -73,18 +73,18 @@ function Skills() {
   const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="mb-12">
-        <span className="text-xs font-bold tracking-widest uppercase text-accent mb-3 block">Skills</span>
-        <h2 className="text-4xl md:text-6xl font-bold text-text mb-2">What I build with</h2>
+    <div className="skills-container">
+      <div className="skills-header-wrapper">
+        <span className="skills-badge">Skills</span>
+        <h2 className="skills-title">What I build with</h2>
       </div>
 
-      <div className="space-y-12">
+      <div className="skills-sections-wrapper">
         <div>
-          <h3 className="text-xl font-bold mb-6 flex items-center gap-4 text-text-sub">
-            <span className="w-12 h-px bg-accent/30" /> Core Tech Stack
+          <h3 className="skills-section-heading">
+            <span className="skills-heading-line-accent" /> Core Tech Stack
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <div className="skills-grid-main">
             {skillsMain.map((skill, index) => (
               <motion.button
                 key={skill.name}
@@ -94,14 +94,14 @@ function Skills() {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 onClick={() => setActiveSkill(skill)}
-                className="p-8 rounded-[32px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-4 shadow-soft hover:shadow-strong group"
+                className="skills-card-main group"
               >
-                <div className="w-20 h-20 flex items-center justify-center p-4 bg-bg-soft rounded-3xl group-hover:rotate-6 transition-transform">
+                <div className="skills-icon-wrapper-main group-hover:rotate-6">
                   <img src={getImagePath(skill.icon)} alt={skill.name} className="w-full h-full object-contain" />
                 </div>
-                <div className="text-center">
-                  <h4 className="font-bold text-lg text-text mb-1">{skill.name}</h4>
-                  <p className="text-xs text-text-sub line-clamp-1">{skill.desc}</p>
+                <div className="skills-card-text-wrapper">
+                  <h4 className="skills-card-title">{skill.name}</h4>
+                  <p className="skills-card-desc">{skill.desc}</p>
                 </div>
               </motion.button>
             ))}
@@ -109,10 +109,10 @@ function Skills() {
         </div>
 
         <div>
-          <h3 className="text-xl font-bold mb-6 flex items-center gap-4 text-text-sub">
-            <span className="w-12 h-px bg-[#ff8ed2]/30" /> Design & System
+          <h3 className="skills-section-heading">
+            <span className="skills-heading-line-pink" /> Design & System
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="skills-grid-support">
             {skillsSupport.map((skill, index) => (
               <motion.button
                 key={skill.name}
@@ -122,14 +122,14 @@ function Skills() {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 onClick={() => setActiveSkill(skill)}
-                className="p-6 rounded-[32px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-3 shadow-soft hover:shadow-strong group"
+                className="skills-card-support group"
               >
-                <div className="w-14 h-14 flex items-center justify-center p-3 bg-bg-soft rounded-2xl group-hover:rotate-6 transition-transform">
+                <div className="skills-icon-wrapper-support group-hover:rotate-6">
                   <img src={getImagePath(skill.icon)} alt={skill.name} className="w-full h-full object-contain" />
                 </div>
-                <div className="text-center">
-                  <h4 className="font-bold text-text mb-1">{skill.name}</h4>
-                  <p className="text-[10px] text-text-sub uppercase tracking-wider">{skill.desc}</p>
+                <div className="skills-card-text-wrapper">
+                  <h4 className="skills-card-title">{skill.name}</h4>
+                  <p className="skills-card-desc-support">{skill.desc}</p>
                 </div>
               </motion.button>
             ))}
@@ -139,50 +139,50 @@ function Skills() {
 
       <AnimatePresence>
         {activeSkill && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+          <div className="skills-modal-overlay">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveSkill(null)}
-              className="absolute inset-0 bg-bg/80 backdrop-blur-sm"
+              className="skills-modal-bg"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg bg-surface rounded-[40px] border border-border-subtle shadow-strong p-10 overflow-hidden"
+              className="skills-modal-card"
             >
               <button
                 onClick={() => setActiveSkill(null)}
-                className="absolute top-6 right-6 p-2 rounded-full hover:bg-bg-soft transition-colors text-text-sub"
+                className="skills-modal-close-btn"
               >
                 <X size={24} />
               </button>
 
-              <div className="flex items-center gap-6 mb-8">
-                <div className="w-20 h-20 p-4 bg-bg-soft rounded-[28px] flex items-center justify-center">
+              <div className="skills-modal-header">
+                <div className="skills-modal-icon-wrapper">
                   <img
                     src={getImagePath(activeSkill.icon)}
                     alt={activeSkill.name}
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
+                <div className="skills-modal-header-title-wrapper">
+                  <span className="skills-modal-sub-label">
                     Skill Detail
                   </span>
-                  <h3 className="text-3xl font-bold">{activeSkill.name}</h3>
+                  <h3 className="skills-modal-title">{activeSkill.name}</h3>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <p className="text-lg font-medium text-text leading-relaxed">{activeSkill.desc}</p>
-                <div className="h-px bg-border-subtle w-full my-6" />
-                <p className="text-text-sub leading-relaxed">{activeSkill.detail}</p>
+              <div className="skills-modal-content">
+                <p className="skills-modal-desc">{activeSkill.desc}</p>
+                <div className="skills-modal-divider" />
+                <p className="skills-modal-detail">{activeSkill.detail}</p>
               </div>
 
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="skills-modal-decor" />
             </motion.div>
           </div>
         )}

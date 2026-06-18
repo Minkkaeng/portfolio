@@ -1,0 +1,443 @@
+/* About Component Styles */
+@utility about-container {
+  @apply w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center;
+}
+@utility about-profile-col {
+  @apply flex flex-col;
+}
+@utility about-header-wrapper {
+  @apply mb-6;
+}
+@utility about-section-label {
+  @apply text-xs font-bold tracking-widest uppercase text-accent mb-3 block;
+}
+@utility about-section-title {
+  @apply text-4xl md:text-6xl font-bold text-text;
+}
+@utility about-body-wrapper {
+  @apply space-y-8;
+}
+@utility about-sub-title {
+  @apply text-2xl md:text-4xl font-bold leading-tight;
+}
+@utility about-highlight-text {
+  @apply text-accent underline decoration-accent/20 underline-offset-8;
+}
+@utility about-lead-paragraph {
+  @apply text-lg md:text-xl text-text-sub leading-relaxed max-w-xl;
+}
+@utility about-paragraph {
+  @apply text-text-sub leading-relaxed max-w-xl;
+}
+@utility about-badge-wrapper {
+  @apply flex flex-wrap gap-3 pt-4;
+}
+@utility about-badge {
+  @apply px-5 py-2 rounded-xl bg-surface border border-border-subtle text-sm font-bold text-text-sub shadow-soft;
+}
+@utility about-card-grid {
+  @apply grid gap-6;
+}
+@utility about-card {
+  @apply p-8 rounded-[32px] bg-surface border border-border-subtle shadow-soft transition-all;
+}
+@utility about-card-inner {
+  @apply flex items-center gap-6;
+}
+@utility about-icon-wrapper {
+  @apply w-16 h-16 shrink-0 rounded-2xl bg-bg-soft flex items-center justify-center;
+}
+@utility about-card-title {
+  @apply text-xl font-bold mb-1 text-text;
+}
+@utility about-card-desc {
+  @apply text-text-sub text-sm leading-relaxed;
+}
+
+/* Header Component Styles */
+@utility header-container {
+  @apply max-w-7xl mx-auto px-6 flex items-center justify-between;
+}
+@utility header-logo {
+  @apply text-lg font-bold tracking-tight text-text;
+}
+@utility header-logo-accent {
+  @apply text-accent;
+}
+@utility header-nav {
+  @apply hidden md:flex items-center gap-8;
+}
+@utility header-nav-item {
+  @apply text-sm font-medium text-text-sub hover:text-accent transition-colors;
+}
+@utility header-action-area {
+  @apply flex items-center gap-4;
+}
+@utility header-theme-toggle {
+  @apply p-2 rounded-full bg-surface-soft border border-border-subtle text-text hover:border-accent transition-colors;
+}
+
+/* Hero Component Styles */
+@utility hero-container {
+  @apply relative w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12;
+}
+@utility hero-text-column {
+  @apply flex-1 text-left;
+}
+@utility hero-badge {
+  @apply inline-block px-3 py-1 rounded-full bg-accent-soft text-accent text-[10px] font-bold tracking-widest uppercase mb-6 border border-accent/20;
+}
+@utility hero-main-heading {
+  @apply text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-[1.15];
+}
+@utility hero-highlight-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-[#ff8ed2];
+}
+@utility hero-description {
+  @apply text-base md:text-lg text-text-sub max-w-xl mb-8 leading-relaxed opacity-90;
+}
+@utility hero-button-area {
+  @apply flex flex-wrap gap-4;
+}
+@utility hero-primary-btn {
+  @apply px-6 py-3.5 rounded-xl bg-accent text-white font-bold flex items-center gap-2 hover:shadow-strong transition-all shadow-lg shadow-accent/20 text-sm;
+}
+@utility hero-primary-btn-icon {
+  @apply transition-transform;
+}
+@utility hero-secondary-btn {
+  @apply px-6 py-3.5 rounded-xl bg-surface border border-border-subtle text-text font-bold hover:bg-surface-soft hover:border-accent transition-all text-sm shadow-soft;
+}
+@utility hero-tag-area {
+  @apply mt-10 flex flex-wrap gap-2.5;
+}
+@utility hero-tag {
+  @apply px-2.5 py-1 rounded-md bg-bg-soft/70 text-text-sub text-[10px] font-bold border border-border-subtle/50 uppercase tracking-wide;
+}
+@utility hero-visual-column {
+  @apply flex-1 relative hidden lg:block;
+}
+@utility hero-visual-container {
+  @apply relative w-full aspect-square max-w-[450px] ml-auto;
+}
+@utility hero-background-blur {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent/5 rounded-full blur-[100px];
+}
+@utility hero-card {
+  @apply relative z-10 w-full h-full bg-surface/40 backdrop-blur-xl rounded-[48px] border border-white/20 shadow-strong p-10 flex flex-col justify-center gap-6;
+}
+@utility hero-card-bar-area {
+  @apply space-y-2;
+}
+@utility hero-card-bar-short {
+  @apply w-12 h-1.5 rounded-full bg-accent/20;
+}
+@utility hero-card-bar-long {
+  @apply w-24 h-1.5 rounded-full bg-accent/40;
+}
+@utility hero-card-title {
+  @apply text-3xl font-bold text-text leading-tight;
+}
+@utility hero-card-desc {
+  @apply text-base text-text-sub leading-relaxed max-w-[300px];
+}
+@utility hero-card-grid {
+  @apply grid grid-cols-2 gap-4 mt-2;
+}
+@utility hero-card-grid-item {
+  @apply p-4 rounded-3xl bg-white/5 border border-white/10;
+}
+@utility hero-card-grid-item-label {
+  @apply text-[10px] uppercase tracking-widest font-bold mb-1;
+}
+@utility hero-card-grid-item-val {
+  @apply text-xl font-bold;
+}
+@utility hero-floating-tag {
+  @apply absolute -top-4 -right-4 z-20 px-5 py-2.5 rounded-2xl bg-surface shadow-strong border border-border-subtle flex items-center gap-3;
+}
+@utility hero-floating-tag-indicator {
+  @apply w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse;
+}
+@utility hero-floating-tag-text {
+  @apply text-xs font-bold;
+}
+@utility hero-scroll-down-indicator {
+  @apply absolute bottom-10 left-1/2 -translate-x-1/2 text-text-sub opacity-50 hidden md:block;
+}
+
+/* Skills Component Styles */
+@utility skills-container {
+  @apply w-full max-w-7xl mx-auto;
+}
+@utility skills-header-wrapper {
+  @apply mb-12;
+}
+@utility skills-badge {
+  @apply text-xs font-bold tracking-widest uppercase text-accent mb-3 block;
+}
+@utility skills-title {
+  @apply text-4xl md:text-6xl font-bold text-text mb-2;
+}
+@utility skills-sections-wrapper {
+  @apply space-y-12;
+}
+@utility skills-section-heading {
+  @apply text-xl font-bold mb-6 flex items-center gap-4 text-text-sub;
+}
+@utility skills-heading-line-accent {
+  @apply w-12 h-px bg-accent/30;
+}
+@utility skills-heading-line-pink {
+  @apply w-12 h-px bg-[#ff8ed2]/30;
+}
+@utility skills-grid-main {
+  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6;
+}
+@utility skills-grid-support {
+  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6;
+}
+@utility skills-card-main {
+  @apply p-8 rounded-[32px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-4 shadow-soft hover:shadow-strong;
+}
+@utility skills-card-support {
+  @apply p-6 rounded-[32px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-3 shadow-soft hover:shadow-strong;
+}
+@utility skills-icon-wrapper-main {
+  @apply w-20 h-20 flex items-center justify-center p-4 bg-bg-soft rounded-3xl transition-transform;
+}
+@utility skills-icon-wrapper-support {
+  @apply w-14 h-14 flex items-center justify-center p-3 bg-bg-soft rounded-2xl transition-transform;
+}
+@utility skills-card-text-wrapper {
+  @apply text-center;
+}
+@utility skills-card-title {
+  @apply font-bold text-lg text-text mb-1;
+}
+@utility skills-card-desc {
+  @apply text-xs text-text-sub line-clamp-1;
+}
+@utility skills-card-desc-support {
+  @apply text-[10px] text-text-sub uppercase tracking-wider;
+}
+@utility skills-modal-overlay {
+  @apply fixed inset-0 z-[100] flex items-center justify-center px-6;
+}
+@utility skills-modal-bg {
+  @apply absolute inset-0 bg-bg/80 backdrop-blur-sm;
+}
+@utility skills-modal-card {
+  @apply relative w-full max-w-lg bg-surface rounded-[40px] border border-border-subtle shadow-strong p-10 overflow-hidden;
+}
+@utility skills-modal-close-btn {
+  @apply absolute top-6 right-6 p-2 rounded-full hover:bg-bg-soft transition-colors text-text-sub;
+}
+@utility skills-modal-header {
+  @apply flex items-center gap-6 mb-8;
+}
+@utility skills-modal-icon-wrapper {
+  @apply w-20 h-20 p-4 bg-bg-soft rounded-[28px] flex items-center justify-center;
+}
+@utility skills-modal-header-title-wrapper {
+  @apply text-left;
+}
+@utility skills-modal-sub-label {
+  @apply text-xs font-bold uppercase tracking-widest text-accent mb-2 block;
+}
+@utility skills-modal-title {
+  @apply text-3xl font-bold;
+}
+@utility skills-modal-content {
+  @apply space-y-4;
+}
+@utility skills-modal-desc {
+  @apply text-lg font-medium text-text leading-relaxed;
+}
+@utility skills-modal-divider {
+  @apply h-px bg-border-subtle w-full my-6;
+}
+@utility skills-modal-detail {
+  @apply text-text-sub leading-relaxed;
+}
+@utility skills-modal-decor {
+  @apply absolute -bottom-10 -right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl pointer-events-none;
+}
+
+/* Projects Component Styles */
+@utility projects-container {
+  @apply w-full max-w-7xl mx-auto px-6;
+}
+@utility projects-header-wrapper {
+  @apply mb-6 text-center;
+}
+@utility projects-badge {
+  @apply text-[10px] font-bold tracking-widest uppercase text-accent mb-1 block;
+}
+@utility projects-title {
+  @apply text-2xl md:text-3xl font-bold text-text;
+}
+@utility projects-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto;
+}
+@utility projects-card-wrapper {
+  @apply cursor-pointer;
+}
+@utility projects-card-image-wrapper {
+  @apply aspect-[4/3] rounded-2xl bg-surface border border-border-subtle overflow-hidden relative mb-4 transition-all duration-300;
+}
+@utility projects-card-image-content {
+  @apply absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 transition-transform duration-700;
+}
+@utility projects-card-logo-circle {
+  @apply w-20 h-20 rounded-full flex items-center justify-center shadow-sm border border-border-subtle;
+}
+@utility projects-card-logo-text {
+  @apply font-black italic text-2xl tracking-tighter;
+}
+@utility projects-card-logo-label {
+  @apply text-[10px] font-bold tracking-[0.2em] text-text-sub text-center uppercase;
+}
+@utility projects-card-hover-overlay {
+  @apply absolute inset-0 bg-accent/5 opacity-0 transition-opacity flex items-center justify-center;
+}
+@utility projects-card-hover-btn {
+  @apply bg-accent text-white px-4 py-2 rounded-full text-xs font-bold transform translate-y-4 transition-transform duration-300 flex items-center gap-1 shadow-lg;
+}
+@utility projects-card-text-wrapper {
+  @apply px-1;
+}
+@utility projects-card-label-new {
+  @apply text-[10px] font-bold tracking-wider mb-1.5 text-accent;
+}
+@utility projects-card-label-normal {
+  @apply text-[10px] font-bold tracking-wider mb-1.5 text-text-sub;
+}
+@utility projects-card-title {
+  @apply text-lg font-bold mb-2 text-text transition-colors leading-tight line-clamp-1;
+}
+@utility projects-card-summary {
+  @apply text-xs text-text-sub leading-relaxed line-clamp-2;
+}
+@utility projects-modal-wrapper {
+  @apply fixed inset-0 z-[100] flex items-center justify-center px-6 py-10 md:py-20;
+}
+@utility projects-modal-bg {
+  @apply absolute inset-0 bg-black/40;
+}
+@utility projects-modal-card {
+  @apply relative w-full max-w-2xl max-h-full bg-white rounded-[32px] border border-black/5 shadow-2xl overflow-hidden;
+}
+@utility projects-modal-close-btn {
+  @apply absolute top-6 right-6 z-10 p-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 transition-colors text-slate-600 shadow-sm;
+}
+@utility projects-modal-scroll-area {
+  @apply p-8 md:p-12 overflow-y-auto max-h-[90vh];
+}
+@utility projects-modal-tags-wrapper {
+  @apply flex flex-wrap gap-2 mb-4;
+}
+@utility projects-modal-tag {
+  @apply px-2 py-0.5 rounded-md bg-accent/5 border border-accent/10 text-[9px] font-bold text-accent uppercase tracking-wider;
+}
+@utility projects-modal-label {
+  @apply text-[10px] font-bold text-accent tracking-widest uppercase mb-1 block;
+}
+@utility projects-modal-title {
+  @apply text-3xl md:text-4xl font-bold mb-4 text-slate-900;
+}
+@utility projects-modal-meta {
+  @apply flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-500 mb-8;
+}
+@utility projects-modal-meta-item {
+  @apply flex items-center gap-1.5;
+}
+@utility projects-modal-meta-divider {
+  @apply w-0.5 h-0.5 rounded-full bg-slate-300;
+}
+@utility projects-modal-body {
+  @apply space-y-8;
+}
+@utility projects-modal-section-heading {
+  @apply text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3 opacity-60;
+}
+@utility projects-modal-overview {
+  @apply text-slate-600 leading-relaxed text-sm;
+}
+@utility projects-modal-tech-wrapper {
+  @apply flex flex-wrap gap-2;
+}
+@utility projects-modal-tech-badge {
+  @apply px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-600;
+}
+@utility projects-modal-highlights-list {
+  @apply space-y-2.5;
+}
+@utility projects-modal-highlight-item {
+  @apply flex gap-3 text-slate-600 leading-relaxed text-sm;
+}
+@utility projects-modal-highlight-dot {
+  @apply mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0;
+}
+@utility projects-modal-links {
+  @apply flex flex-wrap gap-4 pt-4 border-t border-border-subtle;
+}
+@utility projects-link-btn-primary {
+  @apply px-6 py-3 rounded-2xl bg-accent text-white font-bold flex items-center gap-2 hover:shadow-strong transition-all text-sm shadow-lg shadow-accent/20;
+}
+@utility projects-link-btn-secondary {
+  @apply px-6 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 font-bold flex items-center gap-2 hover:bg-slate-100 transition-all text-sm;
+}
+
+/* Contact Component Styles */
+@utility contact-container {
+  @apply w-full max-w-4xl mx-auto text-center;
+}
+@utility contact-header-wrapper {
+  @apply mb-12;
+}
+@utility contact-badge {
+  @apply text-xs font-bold tracking-widest uppercase text-accent mb-4 block;
+}
+@utility contact-title {
+  @apply text-4xl md:text-5xl font-bold text-text mb-6;
+}
+@utility contact-description {
+  @apply text-lg md:text-xl text-text-sub max-w-2xl mx-auto leading-relaxed;
+}
+@utility contact-card-wrapper {
+  @apply relative inline-block;
+}
+@utility contact-card {
+  @apply flex flex-col md:flex-row items-center gap-6 p-2 md:p-3 rounded-[32px] bg-surface border border-border-subtle shadow-strong;
+}
+@utility contact-email-section {
+  @apply flex items-center gap-4 px-8 py-4;
+}
+@utility contact-icon-wrapper {
+  @apply w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent;
+}
+@utility contact-email-text {
+  @apply text-lg font-semibold tracking-tight;
+}
+@utility contact-actions-wrapper {
+  @apply flex items-center gap-3 pr-3 pb-3 md:pb-0;
+}
+@utility contact-copy-btn {
+  @apply px-6 py-4 rounded-2xl bg-bg-soft text-text-sub hover:text-accent transition-colors flex items-center gap-2 font-bold text-sm;
+}
+@utility contact-copy-success {
+  @apply flex items-center gap-2 text-green-500;
+}
+@utility contact-copy-normal {
+  @apply flex items-center gap-2;
+}
+@utility contact-mail-link {
+  @apply px-8 py-4 rounded-2xl bg-accent text-white font-bold flex items-center gap-2 hover:shadow-lg transition-all;
+}
+@utility contact-decor-accent {
+  @apply absolute -z-10 -top-10 -left-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl;
+}
+@utility contact-decor-pink {
+  @apply absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-[#ff8ed2]/5 rounded-full blur-3xl;
+}

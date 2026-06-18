@@ -38,36 +38,36 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
           : "py-6 bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="header-container">
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           type="button"
-          className="text-lg font-bold tracking-tight text-text"
+          className="header-logo"
           onClick={() => handleNavClick("hero")}
         >
-          MK <span className="text-accent">Portfolio</span>
+          MK <span className="header-logo-accent">Portfolio</span>
         </motion.button>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="header-nav">
           {navItems.map((item) => (
             <button
               key={item.id}
               type="button"
               onClick={() => handleNavClick(item.id)}
-              className="text-sm font-medium text-text-sub hover:text-accent transition-colors"
+              className="header-nav-item"
             >
               {item.label}
             </button>
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="header-action-area">
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             type="button"
-            className="p-2 rounded-full bg-surface-soft border border-border-subtle text-text hover:border-accent transition-colors"
+            className="header-theme-toggle"
             onClick={onToggleTheme}
             aria-label="Toggle theme"
           >

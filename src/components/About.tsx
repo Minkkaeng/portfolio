@@ -26,38 +26,38 @@ function About() {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div className="about-container">
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="flex flex-col"
+        className="about-profile-col"
       >
-        <div className="mb-6">
-          <span className="text-xs font-bold tracking-widest uppercase text-accent mb-3 block">Profile</span>
-          <h2 className="text-4xl md:text-6xl font-bold text-text">About Me</h2>
+        <div className="about-header-wrapper">
+          <span className="about-section-label">Profile</span>
+          <h2 className="about-section-title">About Me</h2>
         </div>
 
-        <div className="space-y-8">
-          <h3 className="text-2xl md:text-4xl font-bold leading-tight">
+        <div className="about-body-wrapper">
+          <h3 className="about-sub-title">
             생각의 깊이를 <br />
-            <span className="text-accent underline decoration-accent/20 underline-offset-8">디자인과 코드로 증명합니다.</span>
+            <span className="about-highlight-text">디자인과 코드로 증명합니다.</span>
           </h3>
-          <p className="text-lg md:text-xl text-text-sub leading-relaxed max-w-xl">
+          <p className="about-lead-paragraph">
             단순히 기능을 구현하는 것을 넘어, 사용자가 제품과 상호작용하는 모든 순간을 디자인합니다. <br />
             Figma를 활용한 프로토타이핑부터 React 기반의 정교한 구현까지, <br />
             디자인과 개발의 경계를 허무는 것을 목표로 합니다.
           </p>
-          <p className="text-text-sub leading-relaxed max-w-xl">
+          <p className="about-paragraph">
             안정적인 상태 관리와 컴포넌트 설계는 기본이며, 여기에 타이포그래피, 컬러 시스템, 마이크로 인터랙션을 더해
             프로젝트의 완성도를 한 단계 끌어올리는 작업을 즐깁니다.
           </p>
 
-          <div className="flex flex-wrap gap-3 pt-4">
+          <div className="about-badge-wrapper">
             {["Design Systems", "User Experience", "Pixel Perfection", "Figma to Code"].map((badge) => (
               <span
                 key={badge}
-                className="px-5 py-2 rounded-xl bg-surface border border-border-subtle text-sm font-bold text-text-sub shadow-soft"
+                className="about-badge"
               >
                 {badge}
               </span>
@@ -66,7 +66,7 @@ function About() {
         </div>
       </motion.div>
 
-      <div className="grid gap-6">
+      <div className="about-card-grid">
         {cards.map((card, index) => (
           <motion.div
             key={card.title}
@@ -75,15 +75,15 @@ function About() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ y: -5 }}
-            className="p-8 rounded-[32px] bg-surface border border-border-subtle shadow-soft transition-all"
+            className="about-card"
           >
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 shrink-0 rounded-2xl bg-bg-soft flex items-center justify-center">
+            <div className="about-card-inner">
+              <div className="about-icon-wrapper">
                 {card.icon}
               </div>
               <div>
-                <h4 className="text-xl font-bold mb-1 text-text">{card.title}</h4>
-                <p className="text-text-sub text-sm leading-relaxed">{card.desc}</p>
+                <h4 className="about-card-title">{card.title}</h4>
+                <p className="about-card-desc">{card.desc}</p>
               </div>
             </div>
           </motion.div>

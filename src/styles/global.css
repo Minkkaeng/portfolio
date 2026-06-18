@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./components.css";
 
 @theme {
   --color-accent: var(--accent);

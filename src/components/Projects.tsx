@@ -1,6 +1,6 @@
 import { useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Github, Layers, ArrowUpRight, Heart } from "lucide-react";
+import { X, ExternalLink, Github, Layers, ArrowUpRight } from "lucide-react";
 import { getImagePath } from "../utils/imagePath";
 
 type Project = {
@@ -161,41 +161,41 @@ const ProjectCard = memo(({ project, index, onClick }: { project: Project; index
     viewport={{ once: true }}
     transition={{ delay: index * 0.05 }}
     onClick={() => onClick(project)}
-    className="group cursor-pointer"
+    className="projects-card-wrapper group"
     style={{ willChange: "transform, opacity" }}
   >
     {/* Card Image Part */}
-    <div className="aspect-[4/3] rounded-2xl bg-surface border border-border-subtle overflow-hidden relative mb-4 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 transition-transform duration-700 group-hover:scale-105">
+    <div className="projects-card-image-wrapper group-hover:shadow-xl group-hover:-translate-y-1">
+      <div className="projects-card-image-content group-hover:scale-105">
         <div 
-          className="w-20 h-20 rounded-full flex items-center justify-center shadow-sm border border-border-subtle"
+          className="projects-card-logo-circle"
           style={{ backgroundColor: `${project.color}10` }}
         >
-          <span className="font-black italic text-2xl tracking-tighter" style={{ color: project.color }}>
+          <span className="projects-card-logo-text" style={{ color: project.color }}>
             {project.label.split('·')[1]?.trim().substring(0, 2) || project.title.substring(0, 2)}
           </span>
         </div>
-        <span className="text-[10px] font-bold tracking-[0.2em] text-text-sub text-center uppercase">
+        <span className="projects-card-logo-label">
           {project.label.split('·')[1]?.trim() || project.title}
         </span>
       </div>
       {/* Hover Overlay Button */}
-      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-         <div className="bg-accent text-white px-4 py-2 rounded-full text-xs font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center gap-1 shadow-lg">
+      <div className="projects-card-hover-overlay group-hover:opacity-100">
+         <div className="projects-card-hover-btn group-hover:translate-y-0">
             상세보기 <ArrowUpRight size={14} />
          </div>
       </div>
     </div>
 
     {/* Card Text Part */}
-    <div className="px-1">
-      <p className={`text-[10px] font-bold tracking-wider mb-1.5 ${project.label.startsWith('NEW') ? 'text-accent' : 'text-text-sub'}`}>
+    <div className="projects-card-text-wrapper">
+      <p className={project.label.startsWith("NEW") ? "projects-card-label-new" : "projects-card-label-normal"}>
         {project.label}
       </p>
-      <h3 className="text-lg font-bold mb-2 text-text group-hover:text-accent transition-colors leading-tight line-clamp-1">
+      <h3 className="projects-card-title group-hover:text-accent">
         {project.title}
       </h3>
-      <p className="text-xs text-text-sub leading-relaxed line-clamp-2">
+      <p className="projects-card-summary">
         {project.summary}
       </p>
     </div>
@@ -206,13 +206,13 @@ function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6">
-      <div className="mb-6 text-center">
-        <span className="text-[10px] font-bold tracking-widest uppercase text-accent mb-1 block">Projects</span>
-        <h2 className="text-2xl md:text-3xl font-bold text-text">Selected Work</h2>
+    <div className="projects-container">
+      <div className="projects-header-wrapper">
+        <span className="projects-badge">Projects</span>
+        <h2 className="projects-title">Selected Work</h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="projects-grid">
         {projects.map((project, index) => (
           <ProjectCard 
             key={project.id} 
@@ -225,69 +225,69 @@ function Projects() {
 
       <AnimatePresence>
         {activeProject && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center px-6 py-10 md:py-20">
+          <div className="projects-modal-wrapper">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveProject(null)}
-              className="absolute inset-0 bg-black/40"
+              className="projects-modal-bg"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.98, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.98, y: 20 }}
-              className="relative w-full max-w-2xl max-h-full bg-white rounded-[32px] border border-black/5 shadow-2xl overflow-hidden"
+              className="projects-modal-card"
               style={{ willChange: "transform, opacity" }}
             >
               <button
                 onClick={() => setActiveProject(null)}
-                className="absolute top-6 right-6 z-10 p-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 transition-colors text-slate-600 shadow-sm"
+                className="projects-modal-close-btn"
               >
                 <X size={20} />
               </button>
 
-              <div className="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
-                <div className="flex flex-wrap gap-2 mb-4">
+              <div className="projects-modal-scroll-area">
+                <div className="projects-modal-tags-wrapper">
                   {activeProject.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded-md bg-accent/5 border border-accent/10 text-[9px] font-bold text-accent uppercase tracking-wider"
+                      className="projects-modal-tag"
                     >
                       # {tag}
                     </span>
                   ))}
                 </div>
 
-                <span className="text-[10px] font-bold text-accent tracking-widest uppercase mb-1 block">
+                <span className="projects-modal-label">
                   {activeProject.label}
                 </span>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">{activeProject.title}</h3>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-500 mb-8">
-                  <span className="flex items-center gap-1.5">
+                <h3 className="projects-modal-title">{activeProject.title}</h3>
+                <div className="projects-modal-meta">
+                  <span className="projects-modal-meta-item">
                     <Layers size={14} /> {activeProject.role}
                   </span>
-                  <span className="w-0.5 h-0.5 rounded-full bg-slate-300" />
+                  <span className="projects-modal-meta-divider" />
                   <span>{activeProject.period}</span>
                 </div>
 
-                <div className="space-y-8">
+                <div className="projects-modal-body">
                   <div>
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3 opacity-60">
+                    <h4 className="projects-modal-section-heading">
                       Overview
                     </h4>
-                    <p className="text-slate-600 leading-relaxed text-sm">{activeProject.summary}</p>
+                    <p className="projects-modal-overview">{activeProject.summary}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3 opacity-60">
+                    <h4 className="projects-modal-section-heading">
                       Tech Stack
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="projects-modal-tech-wrapper">
                       {activeProject.tech.map((t) => (
                         <span
                           key={t}
-                          className="px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-600"
+                          className="projects-modal-tech-badge"
                         >
                           {t}
                         </span>
@@ -296,26 +296,26 @@ function Projects() {
                   </div>
 
                   <div>
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3 opacity-60">
+                    <h4 className="projects-modal-section-heading">
                       Key Highlights
                     </h4>
-                    <ul className="space-y-2.5">
+                    <ul className="projects-modal-highlights-list">
                       {activeProject.highlights.map((h) => (
-                        <li key={h} className="flex gap-3 text-slate-600 leading-relaxed text-sm">
-                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <li key={h} className="projects-modal-highlight-item">
+                          <span className="projects-modal-highlight-dot" />
                           {h}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="flex flex-wrap gap-4 pt-4 border-t border-border-subtle">
+                  <div className="projects-modal-links">
                     {activeProject.live !== "#" && (
                       <a
                         href={activeProject.live}
                         target="_blank"
                         rel="noreferrer"
-                        className="px-6 py-3 rounded-2xl bg-accent text-white font-bold flex items-center gap-2 hover:shadow-strong transition-all text-sm shadow-lg shadow-accent/20"
+                        className="projects-link-btn-primary"
                       >
                         Live Project <ExternalLink size={16} />
                       </a>
@@ -325,7 +325,7 @@ function Projects() {
                         href={activeProject.repo}
                         target="_blank"
                         rel="noreferrer"
-                        className="px-6 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 font-bold flex items-center gap-2 hover:bg-slate-100 transition-all text-sm"
+                        className="projects-link-btn-secondary"
                       >
                         GitHub Repo <Github size={16} />
                       </a>
