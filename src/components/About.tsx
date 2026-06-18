@@ -44,7 +44,8 @@ function About() {
             <span className="about-highlight-text">디자인과 코드로 증명합니다.</span>
           </h3>
           <p className="about-lead-paragraph">
-            단순히 기능을 구현하는 것을 넘어, 사용자가 제품과 상호작용하는 모든 순간을 디자인합니다. <br />
+            단순히 기능을 구현하는 것을 넘어, 사용자가 제품과 상호작용하는
+            <br /> 모든 순간을 디자인합니다. <br />
             Figma를 활용한 프로토타이핑부터 React 기반의 정교한 구현까지, <br />
             디자인과 개발의 경계를 허무는 것을 목표로 합니다.
           </p>
@@ -55,10 +56,7 @@ function About() {
 
           <div className="about-badge-wrapper">
             {["Design Systems", "User Experience", "Pixel Perfection", "Figma to Code"].map((badge) => (
-              <span
-                key={badge}
-                className="about-badge"
-              >
+              <span key={badge} className="about-badge">
                 {badge}
               </span>
             ))}
@@ -78,9 +76,7 @@ function About() {
             className="about-card"
           >
             <div className="about-card-inner">
-              <div className="about-icon-wrapper">
-                {card.icon}
-              </div>
+              <div className="about-icon-wrapper">{card.icon}</div>
               <div>
                 <h4 className="about-card-title">{card.title}</h4>
                 <p className="about-card-desc">{card.desc}</p>
