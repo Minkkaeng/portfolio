@@ -79,14 +79,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-*:focus {
-  outline: none !important;
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 html {
   scroll-behavior: smooth;
   overflow: hidden;
-  user-select: none;
 }
 
 body {
@@ -107,6 +107,7 @@ body {
 #root {
   height: 100vh;
   overflow-y: auto;
+  overflow-x: clip;
   scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-padding-top: var(--header-h);
@@ -115,7 +116,7 @@ body {
 
 section {
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
   height: calc(100vh - var(--header-h));
   width: 100%;
   display: flex;
@@ -126,6 +127,19 @@ section {
   overflow: hidden;
   padding: 40px 24px;
   cursor: default;
+}
+
+section#projects {
+  height: auto;
+  min-height: calc(100vh - var(--header-h));
+  overflow: visible;
+}
+
+section#about,
+section#skills {
+  height: auto;
+  min-height: calc(100vh - var(--header-h));
+  overflow: visible;
 }
 
 /* Ensure sections are big enough on small screens */

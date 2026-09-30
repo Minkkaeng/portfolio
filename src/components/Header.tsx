@@ -12,9 +12,12 @@ function Header({ theme, onToggleTheme }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const scrollContainer = document.getElementById("root");
+    if (!scrollContainer) return;
+
+    const onScroll = () => setScrolled(scrollContainer.scrollTop > 20);
+    scrollContainer.addEventListener("scroll", onScroll, { passive: true });
+    return () => scrollContainer.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleNavClick = (id: string) => {

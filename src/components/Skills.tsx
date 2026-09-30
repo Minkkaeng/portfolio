@@ -33,6 +33,13 @@ const skillsMain: Skill[] = [
       "이벤트 기반으로 상태를 관리하고 사용자 액션에 따라 DOM을 업데이트하는 흐름을 설계합니다. 모달/탭/필터 등 UI 패턴 구현 경험이 있습니다.",
   },
   {
+    name: "TypeScript",
+    icon: "",
+    desc: "타입으로 데이터와 props 구조 명확히",
+    detail:
+      "프로젝트에서 TypeScript를 사용해 컴포넌트 props와 데이터 구조를 정의하고, 개발 중 오류를 미리 확인합니다.",
+  },
+  {
     name: "React",
     icon: "/img/react.png",
     desc: "컴포넌트 설계, 라우팅 구조 이해",
@@ -76,13 +83,13 @@ function Skills() {
     <div className="skills-container">
       <div className="skills-header-wrapper">
         <span className="skills-badge">Skills</span>
-        <h2 className="skills-title">What I build with</h2>
+        <h2 className="skills-title">기술 스택</h2>
       </div>
 
       <div className="skills-sections-wrapper">
         <div>
           <h3 className="skills-section-heading">
-            <span className="skills-heading-line-accent" /> Core Tech Stack
+            <span className="skills-heading-line-accent" /> Frontend
           </h3>
           <div className="skills-grid-main">
             {skillsMain.map((skill, index) => (
@@ -97,7 +104,11 @@ function Skills() {
                 className="skills-card-main group"
               >
                 <div className="skills-icon-wrapper-main group-hover:rotate-6">
-                  <img src={getImagePath(skill.icon)} alt={skill.name} className="w-full h-full object-contain" />
+                  {skill.icon ? (
+                    <img src={getImagePath(skill.icon)} alt={skill.name} className="w-full h-full object-contain" />
+                  ) : (
+                    <span className="text-sm font-bold text-text" aria-label={skill.name}>TS</span>
+                  )}
                 </div>
                 <div className="skills-card-text-wrapper">
                   <h4 className="skills-card-title">{skill.name}</h4>
@@ -162,11 +173,15 @@ function Skills() {
 
               <div className="skills-modal-header">
                 <div className="skills-modal-icon-wrapper">
-                  <img
-                    src={getImagePath(activeSkill.icon)}
-                    alt={activeSkill.name}
-                    className="w-full h-full object-contain"
-                  />
+                  {activeSkill.icon ? (
+                    <img
+                      src={getImagePath(activeSkill.icon)}
+                      alt={activeSkill.name}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <span className="text-lg font-bold text-text" aria-label={activeSkill.name}>TS</span>
+                  )}
                 </div>
                 <div className="skills-modal-header-title-wrapper">
                   <span className="skills-modal-sub-label">

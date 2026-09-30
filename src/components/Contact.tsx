@@ -25,10 +25,10 @@ function Contact() {
         className="contact-header-wrapper"
       >
         <span className="contact-badge">Contact</span>
-        <h2 className="contact-title">Let's build something legacy</h2>
+        <h2 className="contact-title">함께 성장할 팀을 찾고 있습니다</h2>
         <p className="contact-description">
-          새로운 서비스, 도전적인 프로젝트에 관심이 많습니다. <br />
-          함께 성장하고 싶은 팀이나 제안이 있다면 편하게 연락 주세요.
+          프론트엔드 개발 직무와 프로젝트 제안을 기다리고 있습니다. <br />
+          아래 이메일로 편하게 연락해 주세요.
         </p>
       </motion.div>
 

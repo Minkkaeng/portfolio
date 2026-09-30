@@ -7,7 +7,7 @@ function Hero() {
       <div className="hero-text-column">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <span className="hero-badge">
-            28살 프론트엔드 개발자
+            프론트엔드 개발자 · 취업 준비 중
           </span>
         </motion.div>
 
@@ -17,12 +17,12 @@ function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="hero-main-heading"
         >
-          사용자 중심의 <br />
+          필요한 정보를 <br />
           <span className="hero-highlight-text">
-            경험을 설계하고
+            명확한 화면으로
           </span>{" "}
           <br />
-          구조적으로 구현합니다
+          구현합니다
         </motion.h1>
 
         <motion.p
@@ -31,8 +31,8 @@ function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="hero-description"
         >
-          심미적인 디자인 and 논리적인 설계를 결합하여, <br className="hidden md:block" />
-          사용자가 머무르고 싶은 웹 인터페이스를 만듭니다.
+          React와 TypeScript로 웹과 앱의 화면을 만들고, <br className="hidden md:block" />
+          사용자가 쉽게 이해하고 사용할 수 있는 흐름을 고민합니다.
         </motion.p>
 
         <motion.div
@@ -80,7 +80,6 @@ function Hero() {
       >
         <div className="hero-visual-container">
           <div className="hero-background-blur" />
-
           <motion.div
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -90,36 +89,31 @@ function Hero() {
               <div className="hero-card-bar-short" />
               <div className="hero-card-bar-long" />
             </div>
-
             <h3 className="hero-card-title">
-              Architecture <br />& Design Systems
+              Frontend <br />& User Experience
             </h3>
-
             <p className="hero-card-desc">
-              사용자 경험을 최우선으로 생각하는 <br />
-              인터페이스를 설계하고 구축합니다.
+              React와 TypeScript로 화면을 만들고
+              <br /> 사용 흐름을 세심하게 다듬습니다.
             </p>
-
             <div className="hero-card-grid">
               <div className="hero-card-grid-item">
-                <p className="hero-card-grid-item-label text-accent">Fast</p>
-                <p className="hero-card-grid-item-val">Optimized</p>
+                <p className="hero-card-grid-item-label text-accent">Build</p>
+                <p className="hero-card-grid-item-val">Responsive UI</p>
               </div>
               <div className="hero-card-grid-item">
-                <p className="hero-card-grid-item-label text-[#ff8ed2]">Clean</p>
-                <p className="hero-card-grid-item-val">Maintainable</p>
+                <p className="hero-card-grid-item-label text-[#ff8ed2]">Care</p>
+                <p className="hero-card-grid-item-val">Clear UX</p>
               </div>
             </div>
           </motion.div>
-
-          {/* Floating tags */}
           <motion.div
             animate={{ x: [0, 10, 0], y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             className="hero-floating-tag"
           >
             <div className="hero-floating-tag-indicator" />
-            <span className="hero-floating-tag-text">Available for Work</span>
+            <span className="hero-floating-tag-text">Open to opportunities</span>
           </motion.div>
         </div>
       </motion.div>
