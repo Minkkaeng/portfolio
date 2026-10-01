@@ -108,7 +108,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   overflow-x: clip;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: none;
   -webkit-overflow-scrolling: touch;
   scroll-padding-top: var(--header-h);
   scroll-behavior: smooth;
@@ -125,7 +125,7 @@ section {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 40px 24px;
+  padding: 88px clamp(20px, 4vw, 48px) 56px;
   cursor: default;
 }
 
@@ -147,6 +147,13 @@ section#skills {
   section {
     height: auto;
     min-height: calc(100vh - var(--header-h));
+    padding-top: 88px;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 88px 20px 56px;
   }
 }
 
@@ -166,7 +173,7 @@ section#skills {
   html, body, #root {
     overflow: visible !important;
     height: auto !important;
-    scroll-snap-type: none !important;
+    /* scroll-snap-type: none !important; */
     background: #ffffff !important;
     color: #111322 !important;
   }

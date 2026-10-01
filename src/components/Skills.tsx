@@ -5,7 +5,9 @@ import { getImagePath } from "../utils/imagePath";
 
 type Skill = {
   name: string;
-  icon: string;
+  icon?: string;
+  mark?: string;
+  level?: string;
   desc: string;
   detail: string;
 };
@@ -35,6 +37,7 @@ const skillsMain: Skill[] = [
   {
     name: "TypeScript",
     icon: "",
+    mark: "TS",
     desc: "타입으로 데이터와 props 구조 명확히",
     detail:
       "프로젝트에서 TypeScript를 사용해 컴포넌트 props와 데이터 구조를 정의하고, 개발 중 오류를 미리 확인합니다.",
@@ -76,6 +79,27 @@ const skillsSupport: Skill[] = [
   },
 ];
 
+const skillsBackend: Skill[] = [
+  {
+    name: "MySQL",
+    icon: "",
+    mark: "SQL",
+    level: "기초",
+    desc: "기본 CRUD와 테이블 구조 이해",
+    detail:
+      "간단한 테이블을 설계하고 SELECT, INSERT, UPDATE, DELETE를 사용한 기본 CRUD 작업을 연습했습니다. 현재는 데이터 관계와 쿼리 작성 범위를 넓히는 중입니다.",
+  },
+  {
+    name: "Python",
+    icon: "",
+    mark: "PY",
+    level: "학습 중",
+    desc: "문법과 데이터 처리 기초 학습",
+    detail:
+      "현재 Python 기본 문법과 데이터 처리 흐름을 학습하고 있습니다. 아직 실무 수준으로 소개하기보다 학습 중인 기술로 구분해 기록했습니다.",
+  },
+];
+
 function Skills() {
   const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
 
@@ -107,12 +131,41 @@ function Skills() {
                   {skill.icon ? (
                     <img src={getImagePath(skill.icon)} alt={skill.name} className="w-full h-full object-contain" />
                   ) : (
-                    <span className="text-sm font-bold text-text" aria-label={skill.name}>TS</span>
+                    <span className="text-sm font-bold text-text" aria-label={skill.name}>{skill.mark || skill.name.slice(0, 2)}</span>
                   )}
                 </div>
                 <div className="skills-card-text-wrapper">
                   <h4 className="skills-card-title">{skill.name}</h4>
                   <p className="skills-card-desc">{skill.desc}</p>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="skills-section-heading">
+            <span className="skills-heading-line-accent" /> Backend Basics
+          </h3>
+          <div className="skills-grid-backend">
+            {skillsBackend.map((skill, index) => (
+              <motion.button
+                key={skill.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                onClick={() => setActiveSkill(skill)}
+                className="skills-card-main group"
+              >
+                <div className="skills-icon-wrapper-main group-hover:rotate-6">
+                  <span className="text-sm font-bold text-text" aria-label={skill.name}>{skill.mark}</span>
+                </div>
+                <div className="skills-card-text-wrapper">
+                  <h4 className="skills-card-title">{skill.name}</h4>
+                  <p className="skills-card-desc">{skill.desc}</p>
+                  <span className="skills-card-level">{skill.level}</span>
                 </div>
               </motion.button>
             ))}
@@ -136,7 +189,11 @@ function Skills() {
                 className="skills-card-support group"
               >
                 <div className="skills-icon-wrapper-support group-hover:rotate-6">
-                  <img src={getImagePath(skill.icon)} alt={skill.name} className="w-full h-full object-contain" />
+                  {skill.icon ? (
+                    <img src={getImagePath(skill.icon)} alt={skill.name} className="w-full h-full object-contain" />
+                  ) : (
+                    <span className="text-sm font-bold text-text" aria-label={skill.name}>{skill.mark || skill.name.slice(0, 2)}</span>
+                  )}
                 </div>
                 <div className="skills-card-text-wrapper">
                   <h4 className="skills-card-title">{skill.name}</h4>
@@ -180,7 +237,7 @@ function Skills() {
                       className="w-full h-full object-contain"
                     />
                   ) : (
-                    <span className="text-lg font-bold text-text" aria-label={activeSkill.name}>TS</span>
+                    <span className="text-lg font-bold text-text" aria-label={activeSkill.name}>{activeSkill.mark || activeSkill.name.slice(0, 2)}</span>
                   )}
                 </div>
                 <div className="skills-modal-header-title-wrapper">

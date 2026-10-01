@@ -16,9 +16,21 @@ type Project = {
   repo: string;
   logo: string;
   color: string;
+  category: ProjectCategory;
+  dataEnvironment: string;
 };
 
-const projects: Project[] = [
+type ProjectCategory = "static" | "webapp" | "app" | "architecture";
+
+const categoryLabels: Record<ProjectCategory | "all", string> = {
+  all: "전체",
+  static: "정적·반응형 웹",
+  webapp: "웹앱",
+  app: "모바일 앱",
+  architecture: "구조·기술",
+};
+
+const projectItems = [
   {
     id: 6,
     label: "01 · DevSnip",
@@ -301,6 +313,28 @@ const projects: Project[] = [
   },
 ];
 
+const projectMetadata: Record<number, { category: ProjectCategory; dataEnvironment: string }> = {
+  6: { category: "webapp", dataEnvironment: "정적 JSON" },
+  5: { category: "webapp", dataEnvironment: "프론트엔드 중심" },
+  0: { category: "webapp", dataEnvironment: "정적 데이터" },
+  1: { category: "webapp", dataEnvironment: "Mock 데이터" },
+  2: { category: "app", dataEnvironment: "로컬 데이터" },
+  3: { category: "app", dataEnvironment: "프론트엔드 중심" },
+  7: { category: "static", dataEnvironment: "정적 콘텐츠" },
+  8: { category: "webapp", dataEnvironment: "인터랙티브 프로토타입" },
+  9: { category: "static", dataEnvironment: "정적 콘텐츠" },
+  10: { category: "webapp", dataEnvironment: "LocalStorage" },
+  11: { category: "webapp", dataEnvironment: "정적 데이터" },
+  12: { category: "static", dataEnvironment: "정적 콘텐츠" },
+  13: { category: "architecture", dataEnvironment: "패키지 구조" },
+  14: { category: "app", dataEnvironment: "프론트엔드 중심" },
+};
+
+const projects: Project[] = projectItems.map((project) => ({
+  ...project,
+  ...projectMetadata[project.id],
+}));
+
 const ProjectCard = memo(({ project, index, onClick }: { project: Project; index: number; onClick: (p: Project) => void }) => (
   <motion.div
     initial={{ opacity: 0, y: 15 }}
@@ -339,6 +373,10 @@ const ProjectCard = memo(({ project, index, onClick }: { project: Project; index
       <p className={project.label.startsWith("NEW") ? "projects-card-label-new" : "projects-card-label-normal"}>
         {project.label}
       </p>
+      <div className="projects-card-meta">
+        <span>{categoryLabels[project.category]}</span>
+        <span>{project.dataEnvironment}</span>
+      </div>
       <h3 className="projects-card-title group-hover:text-accent">
         {project.title}
       </h3>
@@ -351,16 +389,38 @@ const ProjectCard = memo(({ project, index, onClick }: { project: Project; index
 
 function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory | "all">("all");
+  const visibleProjects = activeCategory === "all"
+    ? projects
+    : projects.filter((project) => project.category === activeCategory);
 
   return (
     <div className="projects-container">
       <div className="projects-header-wrapper">
         <span className="projects-badge">Projects</span>
-        <h2 className="projects-title">선택한 프로젝트</h2>
+        <h2 className="projects-title">프로젝트</h2>
+        <p className="projects-description">
+          프론트엔드 구현과 사용자 흐름 검증을 중심으로 제작했습니다. 일부 프로젝트는 백엔드·DB 없이 정적 데이터나 로컬 저장소를 사용한 프로토타입입니다.
+        </p>
+      </div>
+
+      <div className="projects-filter-list" role="tablist" aria-label="프로젝트 유형 필터">
+        {(Object.keys(categoryLabels) as Array<ProjectCategory | "all">).map((category) => (
+          <button
+            key={category}
+            type="button"
+            role="tab"
+            aria-selected={activeCategory === category}
+            onClick={() => setActiveCategory(category)}
+            className={`projects-filter-btn ${activeCategory === category ? "projects-filter-btn-active" : ""}`}
+          >
+            {categoryLabels[category]}
+          </button>
+        ))}
       </div>
 
       <div className="projects-grid">
-        {projects.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <ProjectCard 
             key={project.id} 
             project={project} 
@@ -396,6 +456,8 @@ function Projects() {
 
               <div className="projects-modal-scroll-area">
                 <div className="projects-modal-tags-wrapper">
+                  <span className="projects-modal-tag">{categoryLabels[activeProject.category]}</span>
+                  <span className="projects-modal-tag">{activeProject.dataEnvironment}</span>
                   {activeProject.tags.map((tag) => (
                     <span
                       key={tag}

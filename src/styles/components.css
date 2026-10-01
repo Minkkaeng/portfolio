@@ -1,6 +1,6 @@
 /* About Component Styles */
 @utility about-container {
-  @apply w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center;
+  @apply w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center;
 }
 @utility about-profile-col {
   @apply flex flex-col;
@@ -12,22 +12,22 @@
   @apply text-xs font-bold tracking-widest uppercase text-accent mb-3 block;
 }
 @utility about-section-title {
-  @apply text-3xl md:text-5xl font-bold text-text;
+  @apply text-2xl md:text-3xl font-bold text-text;
 }
 @utility about-body-wrapper {
   @apply space-y-8;
 }
 @utility about-sub-title {
-  @apply text-xl md:text-3xl font-bold leading-tight;
+  @apply text-lg md:text-2xl font-bold leading-tight;
 }
 @utility about-highlight-text {
   @apply text-accent underline decoration-accent/20 underline-offset-8;
 }
 @utility about-lead-paragraph {
-  @apply text-base md:text-lg text-text-sub leading-relaxed max-w-xl;
+  @apply text-sm md:text-base text-text-sub leading-relaxed max-w-xl;
 }
 @utility about-paragraph {
-  @apply text-text-sub leading-relaxed max-w-xl;
+  @apply text-sm md:text-base text-text-sub leading-relaxed max-w-xl;
 }
 @utility about-badge-wrapper {
   @apply flex flex-wrap gap-3 pt-4;
@@ -36,7 +36,7 @@
   @apply px-5 py-2 rounded-xl bg-surface border border-border-subtle text-sm font-bold text-text-sub shadow-soft;
 }
 @utility about-card-grid {
-  @apply flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-6 px-6 md:grid md:grid-cols-2 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0;
+  @apply flex overflow-x-auto snap-x snap-proximity gap-5 pb-6 lg:grid lg:grid-cols-2 lg:overflow-visible lg:snap-none lg:pb-0;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -44,16 +44,16 @@
   display: none;
 }
 @utility about-card {
-  @apply p-8 rounded-[32px] bg-surface border border-border-subtle shadow-soft transition-all w-[85vw] max-w-[340px] snap-center shrink-0 md:w-auto md:max-w-none md:shrink;
+  @apply p-6 lg:p-7 rounded-[28px] bg-surface border border-border-subtle shadow-soft transition-all w-[82vw] max-w-[360px] snap-center shrink-0 lg:w-auto lg:max-w-none lg:shrink;
 }
 @utility about-card-inner {
-  @apply flex items-center gap-6;
+  @apply flex items-center gap-4;
 }
 @utility about-icon-wrapper {
-  @apply w-16 h-16 shrink-0 rounded-2xl bg-bg-soft flex items-center justify-center;
+  @apply w-14 h-14 shrink-0 rounded-2xl bg-bg-soft flex items-center justify-center;
 }
 @utility about-card-title {
-  @apply text-lg font-bold mb-1 text-text;
+  @apply text-base font-bold text-text leading-tight;
 }
 @utility about-card-desc {
   @apply text-text-sub text-sm leading-relaxed;
@@ -61,7 +61,7 @@
 
 /* Header Component Styles */
 @utility header-container {
-  @apply max-w-7xl mx-auto px-6 flex items-center justify-between;
+  @apply max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between;
 }
 @utility header-logo {
   @apply text-lg font-bold tracking-tight text-text;
@@ -84,7 +84,7 @@
 
 /* Hero Component Styles */
 @utility hero-container {
-  @apply relative w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12;
+  @apply relative w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-12;
 }
 @utility hero-text-column {
   @apply flex-1 text-left;
@@ -93,13 +93,13 @@
   @apply inline-block px-3 py-1 rounded-full bg-accent-soft text-accent text-[10px] font-bold tracking-widest uppercase mb-6 border border-accent/20;
 }
 @utility hero-main-heading {
-  @apply text-3xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.15];
+  @apply text-2xl md:text-4xl font-extrabold tracking-tight mb-6 leading-[1.15];
 }
 @utility hero-highlight-text {
   @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-[#ff8ed2];
 }
 @utility hero-description {
-  @apply text-sm md:text-base text-text-sub max-w-xl mb-8 leading-relaxed opacity-90;
+  @apply text-xs md:text-sm text-text-sub max-w-xl mb-8 leading-relaxed opacity-90;
 }
 @utility hero-button-area {
   @apply flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto;
@@ -173,7 +173,7 @@
 
 /* Skills Component Styles */
 @utility skills-container {
-  @apply w-full max-w-7xl mx-auto;
+  @apply w-full max-w-6xl mx-auto;
 }
 @utility skills-header-wrapper {
   @apply mb-12;
@@ -182,10 +182,10 @@
   @apply text-xs font-bold tracking-widest uppercase text-accent mb-3 block;
 }
 @utility skills-title {
-  @apply text-3xl md:text-5xl font-bold text-text mb-2;
+  @apply text-2xl md:text-3xl font-bold text-text mb-2;
 }
 @utility skills-sections-wrapper {
-  @apply space-y-12;
+  @apply space-y-10;
 }
 @utility skills-section-heading {
   @apply text-lg font-bold mb-6 flex items-center gap-4 text-text-sub;
@@ -197,28 +197,34 @@
   @apply w-12 h-px bg-[#ff8ed2]/30;
 }
 @utility skills-grid-main {
-  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6;
+  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5;
 }
 @utility skills-grid-support {
-  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6;
+  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5;
+}
+@utility skills-grid-backend {
+  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5;
 }
 @utility skills-card-main {
-  @apply p-8 rounded-[32px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-4 shadow-soft hover:shadow-strong;
+  @apply min-h-[200px] p-6 rounded-[28px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-4 shadow-soft hover:shadow-strong;
 }
 @utility skills-card-support {
-  @apply p-6 rounded-[32px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-3 shadow-soft hover:shadow-strong;
+  @apply min-h-[200px] p-6 rounded-[28px] bg-surface border border-border-subtle hover:border-accent transition-all text-left flex flex-col items-center justify-center gap-4 shadow-soft hover:shadow-strong;
 }
 @utility skills-icon-wrapper-main {
   @apply w-20 h-20 flex items-center justify-center p-4 bg-bg-soft rounded-3xl transition-transform;
 }
 @utility skills-icon-wrapper-support {
-  @apply w-14 h-14 flex items-center justify-center p-3 bg-bg-soft rounded-2xl transition-transform;
+  @apply w-20 h-20 flex items-center justify-center p-4 bg-bg-soft rounded-3xl transition-transform;
 }
 @utility skills-card-text-wrapper {
   @apply text-center;
 }
 @utility skills-card-title {
-  @apply font-bold text-base text-text mb-1;
+  @apply font-bold text-sm text-text leading-tight;
+}
+@utility skills-card-level {
+  @apply inline-block mt-2 text-[10px] font-bold tracking-wide text-accent;
 }
 @utility skills-card-desc {
   @apply text-xs text-text-sub whitespace-normal break-words;
@@ -271,19 +277,36 @@
 
 /* Projects Component Styles */
 @utility projects-container {
-  @apply w-full max-w-7xl mx-auto px-6;
+  @apply w-full max-w-6xl mx-auto;
 }
 @utility projects-header-wrapper {
-  @apply mb-6 text-center;
+  @apply mb-6 text-left;
 }
 @utility projects-badge {
   @apply text-[10px] font-bold tracking-widest uppercase text-accent mb-1 block;
 }
 @utility projects-title {
-  @apply text-xl md:text-2xl font-bold text-text;
+  @apply text-2xl md:text-3xl font-bold text-text;
+}
+@utility projects-description {
+  @apply mt-3 max-w-2xl text-xs md:text-sm text-text-sub leading-relaxed;
+}
+@utility projects-filter-list {
+  @apply mb-6 flex max-w-full gap-2 overflow-x-auto pb-1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.projects-filter-list::-webkit-scrollbar {
+  display: none;
+}
+@utility projects-filter-btn {
+  @apply shrink-0 rounded-full border border-border-subtle bg-surface px-4 py-2 text-xs font-bold text-text-sub transition-colors hover:border-accent hover:text-accent;
+}
+@utility projects-filter-btn-active {
+  @apply border-accent bg-accent text-white;
 }
 @utility projects-grid {
-  @apply flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-6 px-6 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:overflow-visible sm:snap-none sm:pb-0 sm:mx-auto sm:px-0 max-w-6xl mx-auto;
+  @apply flex overflow-x-auto snap-x snap-proximity gap-5 pb-8 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:overflow-visible sm:snap-none sm:pb-0;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -291,10 +314,10 @@
   display: none;
 }
 @utility projects-card-wrapper {
-  @apply cursor-pointer w-[80vw] max-w-[320px] snap-center shrink-0 sm:w-auto sm:max-w-none sm:shrink;
+  @apply cursor-pointer w-[78vw] max-w-[300px] snap-center shrink-0 sm:w-auto sm:max-w-none sm:shrink;
 }
 @utility projects-card-image-wrapper {
-  @apply aspect-[4/3] rounded-2xl bg-surface border border-border-subtle overflow-hidden relative mb-4 transition-all duration-300;
+  @apply aspect-[4/3] rounded-[22px] bg-surface border border-border-subtle overflow-hidden relative mb-4 transition-all duration-300;
 }
 @utility projects-card-image-content {
   @apply absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 transition-transform duration-700;
@@ -323,11 +346,17 @@
 @utility projects-card-label-normal {
   @apply text-[10px] font-bold tracking-wider mb-1.5 text-text-sub;
 }
+@utility projects-card-meta {
+  @apply mb-2 flex flex-wrap gap-1.5 text-[9px] font-medium text-text-sub;
+}
+.projects-card-meta span {
+  @apply rounded-md bg-bg-soft px-1.5 py-0.5;
+}
 @utility projects-card-title {
   @apply text-base font-bold mb-2 text-text transition-colors leading-tight whitespace-normal break-words;
 }
 @utility projects-card-summary {
-  @apply text-xs text-text-sub leading-relaxed line-clamp-2;
+  @apply text-xs text-text-sub leading-relaxed whitespace-normal break-words;
 }
 @utility projects-modal-wrapper {
   @apply fixed inset-0 z-[100] flex items-center justify-center px-4 md:px-6 py-6 md:py-20;
@@ -410,10 +439,10 @@
   @apply text-xs font-bold tracking-widest uppercase text-accent mb-4 block;
 }
 @utility contact-title {
-  @apply text-3xl md:text-4xl font-bold text-text mb-6;
+  @apply text-2xl md:text-3xl font-bold text-text mb-6;
 }
 @utility contact-description {
-  @apply text-base md:text-lg text-text-sub max-w-2xl mx-auto leading-relaxed;
+  @apply text-sm md:text-base text-text-sub max-w-2xl mx-auto leading-relaxed;
 }
 @utility contact-card-wrapper {
   @apply relative inline-block;
